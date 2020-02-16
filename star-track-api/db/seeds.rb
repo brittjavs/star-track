@@ -12,3 +12,8 @@ Constellation.create([
     {name: "Centaurus", image: "/Users/brittanyjavalera/Documents/Learn-co/star-track/star-track-frontend/assets/images/centaurus.jpg"},
     {name: "Crux", image:"/Users/brittanyjavalera/Documents/Learn-co/star-track/star-track-frontend/assets/images/crux.jpg"}
 ])
+
+Observation.create([
+    {location: "Los Angeles, CA", clarity: 6, constellation_id: 1},
+    {location: "Seattle, WA", clarity: 7, constellation_id: 2}
+])
