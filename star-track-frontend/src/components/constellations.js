@@ -8,6 +8,17 @@ class Constellations {
 
     initBindingsAndEventListeners(){
         this.cardContainer = document.getElementById("card-container")
+        this.cardContainer.addEventListener('click', this.showObservation.bind(this))
+    }
+
+    showObservation(event){
+        if (event.target.className === "view-observation-btn"){
+            let selected = this.constellations.find(constellation => constellation.id == event.target.id)
+            let newStuff = selected.constObservationHTML()
+            let obsDiv = document.createElement('div')
+            obsDiv.innerHTML = newStuff
+            event.target.parentElement.appendChild(obsDiv)    
+        }
     }
 
     getAndLoadConstellations(){
@@ -32,13 +43,15 @@ class Constellations {
 
             let viewButton = document.createElement('button')
             viewButton.id = `${constellation.id}`
-            viewButton.className = "view-sighting-btn"
-            viewButton.innerHTML = "View Recorded Sightings"
+            viewButton.className = "view-observation-btn"
+            viewButton.innerHTML = "View Recorded Observations"
 
             let newSighting = document.createElement('button')
             newSighting.id = `${constellation.id}`
-            newSighting.className = "new-sighting-btn"
-            newSighting.innerHTML = "Add New Sighting"
+            newSighting.className = "new-observation-btn"
+            newSighting.innerHTML = "Contribute an Observation"
+
+            
 
             divCard.appendChild(viewButton)
             divCard.appendChild(newSighting)
