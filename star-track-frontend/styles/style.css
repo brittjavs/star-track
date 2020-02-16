@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+
+  div.const-card {
+    text-align: center;
+    background-color: #eeeeee;
+    min-height: 300px;
+    min-width: 250px;
+    display: inline-grid;
+    margin: 1rem 2rem;
+    box-shadow: 10px 10px grey;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
