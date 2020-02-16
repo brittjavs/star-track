@@ -10,6 +10,5 @@ Constellation.create([
     {name: "Ursa Minor", image: "/Users/brittanyjavalera/Documents/Learn-co/star-track/star-track-frontend/assets/images/ursa-minor.jpg"},
     {name: "Carina", image: "/Users/brittanyjavalera/Documents/Learn-co/star-track/star-track-frontend/assets/images/carina.jpg"},
     {name: "Centaurus", image: "/Users/brittanyjavalera/Documents/Learn-co/star-track/star-track-frontend/assets/images/centaurus.jpg"},
-    {name: "Crux", image:"/Users/brittanyjavalera/Documents/Learn-co/star-track/star-track-frontend/assets/images/crux.jpg"},
-
+    {name: "Crux", image:"/Users/brittanyjavalera/Documents/Learn-co/star-track/star-track-frontend/assets/images/crux.jpg"}
 ])
