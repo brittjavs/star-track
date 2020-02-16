@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Constellation.create([
+    {name: "Ursa Major", image: "/Users/brittanyjavalera/Documents/Learn-co/star-track/star-track-frontend/assets/images/ursa-major.jpg"},
+    {name: "Ursa Minor", image: "/Users/brittanyjavalera/Documents/Learn-co/star-track/star-track-frontend/assets/images/ursa-minor.jpg"},
+    {name: "Carina", image: "/Users/brittanyjavalera/Documents/Learn-co/star-track/star-track-frontend/assets/images/carina.jpg"},
+    {name: "Centaurus", image: "/Users/brittanyjavalera/Documents/Learn-co/star-track/star-track-frontend/assets/images/centaurus.jpg"},
+    {name: "Crux", image:"/Users/brittanyjavalera/Documents/Learn-co/star-track/star-track-frontend/assets/images/crux.jpg"},
+
+])
