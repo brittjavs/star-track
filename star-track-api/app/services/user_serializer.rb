@@ -1,5 +1,5 @@
-class ConstellationSerializer
+class UserSerializer
     include FastJsonapi::ObjectSerializer
-    attributes :id, :name, :image
+    attributes :id, :username
     has_many :observations
 end
