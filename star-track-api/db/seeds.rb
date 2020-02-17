@@ -13,12 +13,7 @@ Constellation.create([
     {name: "Crux", image:"/Users/brittanyjavalera/Documents/Learn-co/star-track/star-track-frontend/assets/images/crux.jpg"}
 ])
 
-User.create([
-    {username: "Billie"},
-    {username: "Nugget"}
-])
-
 Observation.create([
-    {location: "Los Angeles, CA", clarity: 6, constellation_id: 1, user_id: 1},
-    {location: "Seattle, WA", clarity: 7, constellation_id: 2, user_id: 2}
+    {location: "Los Angeles, CA", clarity: 6, constellation_id: 1},
+    {location: "Seattle, WA", clarity: 7, constellation_id: 2}
 ])
