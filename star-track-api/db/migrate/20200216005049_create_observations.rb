@@ -4,6 +4,7 @@ class CreateObservations < ActiveRecord::Migration[6.0]
       t.string :location
       t.integer :clarity
       t.integer :constellation_id
+      t.integer :user_id
       t.timestamps
     end
   end

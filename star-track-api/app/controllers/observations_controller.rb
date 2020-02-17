@@ -4,7 +4,6 @@ class ObservationsController < ApplicationController
             if observation.save
             render json: ObservationSerializer.new(observation).serialized_json
             end
-        
     end
 
     def index
