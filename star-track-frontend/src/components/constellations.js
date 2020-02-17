@@ -8,16 +8,28 @@ class Constellations {
 
     initBindingsAndEventListeners(){
         this.cardContainer = document.getElementById("card-container")
-        this.cardContainer.addEventListener('click', this.showObservation.bind(this))
+        this.cardContainer.addEventListener('click', this.manageObservations.bind(this))
+        // this.cardContainer.addEventListener('click', this.addObservation.bind(this))
     }
 
-    showObservation(event){
+    manageObservations(event){
+        let obsDiv = document.createElement('div')
+            obsDiv.className = "observation-list"
         if (event.target.className === "view-observation-btn"){
+            event.target.className = "hide-observation-btn"
+            event.target.innerHTML = "Hide Observations"
             let selected = this.constellations.find(constellation => constellation.id == event.target.id)
-            let newStuff = selected.constObservationHTML()
-            let obsDiv = document.createElement('div')
-            obsDiv.innerHTML = newStuff
+            let observations = selected.constObservationHTML()
+            obsDiv.innerHTML = observations
             event.target.parentElement.appendChild(obsDiv)    
+        }
+        else if(event.target.className === "hide-observation-btn"){
+            event.target.className = "view-observation-btn"
+            event.target.innerHTML = "View Recorded Observations"
+            event.target.parentElement.lastElementChild.remove()
+        }
+        else if(event.target.className === "new-observation-btn"){
+            console.log("add", event.target.parentElement)
         }
     }
 
@@ -50,8 +62,6 @@ class Constellations {
             newSighting.id = `${constellation.id}`
             newSighting.className = "new-observation-btn"
             newSighting.innerHTML = "Contribute an Observation"
-
-            
 
             divCard.appendChild(viewButton)
             divCard.appendChild(newSighting)
