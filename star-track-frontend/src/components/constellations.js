@@ -27,6 +27,7 @@ class Constellations {
             event.target.className = "view-observation-btn"
             event.target.innerHTML = "View Recorded Observations"
             event.target.parentElement.lastElementChild.remove()
+            //parentElement is the div-card & lastElementChild is obsDiv
         }
         else if(event.target.className === "new-observation-btn"){
             console.log("add", event.target.parentElement)
