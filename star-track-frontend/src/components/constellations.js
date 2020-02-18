@@ -30,7 +30,28 @@ class Constellations {
             //parentElement is the div-card & lastElementChild is obsDiv
         }
         else if(event.target.className === "new-observation-btn"){
-            console.log("add", event.target.parentElement)
+            event.target.className = "hide-form-btn"
+            event.target.innerHTML = "Hide Form"
+            let formDiv = document.createElement('div')
+            formDiv.className = "form"
+            formDiv.innerHTML = 
+            `<form class="add-observation-form">
+            <label for="observation-location">Location:</label>
+            <input type="text" name="location" value="" placeholder="City, State" class="input-text"/>
+            <br />
+            <label for="observation-clarity">Clarity Rating:</label>
+            <input type="text" name="clarity" value="" 
+            placeholder="Enter a rating 1 - 10 (10 being the best clarity)" class="input-text"/>
+            <br />
+            <input type="submit" name="submit" value="Create Observation" class="submit" />
+            </form>`
+            event.target.parentElement.appendChild(formDiv)
+        }
+
+        else if(event.target.className === "hide-form-btn"){
+            event.target.className = "new-observation-btn"
+            event.target.innerHTML = "Contribute an Observation"
+            event.target.parentElement.lastElementChild.remove()
         }
     }
 
