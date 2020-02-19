@@ -13,7 +13,6 @@ class Observations{
     }
 
     getAndLoadObservations(){
-        console.log(this)
         this.adapter
         .getObservations()
         .then(observations =>{
@@ -26,7 +25,28 @@ class Observations{
     }
 
     renderObservations(){
-        this.cardContainer
+        this.cardContainer.innerHTML = ""
+        this.dataButton.innerHTML = "View Constellations"
+        this.dataButton.className = "view-constellation-btn"
+        const observationTable = document.createElement('table')
+        let header = observationTable.createTHead();
+        let headerRow = header.insertRow();
+        let keys = Object.keys(this.observations[0])
+        
+        for (let key of keys){
+            let th = document.createElement("th")
+            let text = document.createTextNode(key);
+            th.appendChild(text)
+            th.style.textTransform = "capitalize"
+            headerRow.appendChild(th)
+        }
+        this.observations.forEach(observation=>{
+            let data = observation.populateTable()
+            observationTable.append(data)
+        })
+        this.cardContainer.appendChild(observationTable)
+        
     }
+
 
 }
