@@ -5,7 +5,12 @@ class ObservationSerializer
 
     def to_serialized_json
         options = {
-            except: [:updated_at, :created_at],
+            include: {
+                constellation: {
+                    except: [:updated_at, :created_at, :image]
+                }
+            },
+            except: [:updated_at, :created_at, :constellation_id],
         }
         @observation.to_json(options)
     end
