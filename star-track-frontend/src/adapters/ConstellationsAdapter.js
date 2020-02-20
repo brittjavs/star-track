@@ -9,4 +9,8 @@ class ConstellationsAdapter{
     getConstellations(){
         return fetch(this.baseURL).then(resp => resp.json())
     }
+
+    newObservation(){
+        
+    }
 }

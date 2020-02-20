@@ -1,5 +1,6 @@
 class Observations{
     constructor(){
+        this.baseURL = "http://localhost:3000/observations"
         this.observations = []
         this.adapter = new ObservationsAdapter()
         this.initBindingsAndEventListeners()
@@ -7,9 +8,9 @@ class Observations{
 
     initBindingsAndEventListeners(){
         this.cardContainer = document.getElementById("card-container")
-        this.dataButton = document.getElementsByClassName("observation-data-btn")[0]
+        this.dataButton = document.getElementById("observation-data")
         this.dataButton.addEventListener('click', this.getAndLoadObservations.bind(this))
-        //bind(this) so this = observations class and not the button
+        //bind(this) to have this = observations class and not the button
     }
 
     getAndLoadObservations(){
@@ -27,7 +28,7 @@ class Observations{
     renderObservations(){
         this.cardContainer.innerHTML = ""
         this.dataButton.innerHTML = "View Constellations"
-        this.dataButton.className = "view-constellation-btn"
+        this.dataButton.id = "constellation-data"
         const observationTable = document.createElement('table')
         let header = observationTable.createTHead();
         let headerRow = header.insertRow();
@@ -46,7 +47,6 @@ class Observations{
         })
         this.cardContainer.appendChild(observationTable)
         
-    }
-
+    }    
 
 }

@@ -20,4 +20,5 @@ class Constellation{
         <li>Location: ${observation.location} Clarity Rating:${observation.clarity}</li>
         </ul>`).join(' ')
     }
+
 }
