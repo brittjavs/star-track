@@ -27,7 +27,7 @@ class ConstellationsAdapter{
         })
         // fetch(this.observationURL, observationObj)
          .then(resp => resp.json())
-        // // .then(json => renderObservations(json))
+        
         // })
     }
 }

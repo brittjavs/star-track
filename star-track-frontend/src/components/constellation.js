@@ -15,10 +15,8 @@ class Constellation{
     }
 
     constObservationHTML(){
-        return this.observations.map(observation => `<h4>Observations</h4>
-        <ul>
-        <li>Location: ${observation.location} Clarity Rating:${observation.clarity}</li>
-        </ul>`).join(' ')
+        return this.observations.map(observation => `
+        <li>Location: ${observation.location} Clarity Rating:${observation.clarity}</li>`).join(' ')
     }
 
 }
