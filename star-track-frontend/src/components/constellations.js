@@ -89,12 +89,53 @@ class Constellations{
             formDiv.style.display = "none"
             formDiv.id = `${constellation.id}`
             formDiv.innerHTML = this.formHTML()
-            divCard.appendChild(formDiv)
             formDiv.addEventListener('submit', this.createObservation.bind(this))
-            
+            divCard.appendChild(formDiv)
+
             this.cardContainer.appendChild(divCard)
         })
     }
+    
+    createObservation(event){
+        //this is constellations object
+        //event.target = form
+        //console.log(event.target)
+        event.preventDefault()
+        
+        const location = event.target.location.value
+        const clarity = event.target.clarity.value
+        const constell_id = event.target.parentElement.id
+        const allULs = document.querySelectorAll(".observations")
+        let observationsUL = allULs[`${constell_id}`-1]
+        this.adapter.newObservation(location, clarity, constell_id)
+        .then(observation =>{
+            let newLI = `<li>Location: ${observation.location} Clarity Rating:${observation.clarity}</li>`
+            observationsUL.innerHTML += newLI
+        })
+        
+    }
+
+    formHTML(){
+        return `<form class="add-observation-form">
+        <label for="observation-location">Location:</label>
+        <input type="text" name="location" value="" placeholder="City, State" class="input-text"/>
+        <br />
+        <label for="observation-clarity">Clarity Rating:</label>
+        <input type="number" name="clarity" value="" 
+        placeholder="Enter a rating 1 - 10 (10 being the best clarity)" class="input-text"/>
+        <br />
+        <input type="submit" name="submit" value="Submit Observation" class="submit" />
+        </form>`
+    }
+
+   
+
+}
+
+
+
+
+
 
     // manageObservations(event){
     //     const button = event.target
@@ -130,34 +171,3 @@ class Constellations{
     //         //lastElementChild is form div
     //     }
     // }
-    
-    createObservation(event){
-        //this is constellations object
-        //event.target = form
-        event.preventDefault()
-        const location = event.target.location.value
-        const clarity = event.target.clarity.value
-        const constell_id = event.target.parentElement.id
-        debugger
-        this.adapter.newObservation(location, clarity, constell_id)
-        .then(()=> {
-            this.renderConstellations()
-        })
-    }
-
-    formHTML(){
-        return `<form class="add-observation-form">
-        <label for="observation-location">Location:</label>
-        <input type="text" name="location" value="" placeholder="City, State" class="input-text"/>
-        <br />
-        <label for="observation-clarity">Clarity Rating:</label>
-        <input type="number" name="clarity" value="" 
-        placeholder="Enter a rating 1 - 10 (10 being the best clarity)" class="input-text"/>
-        <br />
-        <input type="submit" name="submit" value="Submit Observation" class="submit" />
-        </form>`
-    }
-
-
-
-}
