@@ -9,6 +9,7 @@ class Constellations {
     initBindingsAndEventListeners(){
         this.cardContainer = document.getElementById("card-container")
         this.cardContainer.addEventListener('click', this.manageObservations.bind(this))
+        
     }
 
     getAndLoadConstellations(){
@@ -68,11 +69,12 @@ class Constellations {
             button.innerHTML = "Hide Form"
             let formDiv = document.createElement('div')
             formDiv.className = "form"
-            formDiv.innerHTML = this.formHTML()           
+            formDiv.id = button.parentElement.id
+            formDiv.innerHTML = this.formHTML()
             button.parentElement.appendChild(formDiv)
 
            let form = document.querySelector('.add-observation-form')
-            form.addEventListener('submit', this.createObservation)
+            form.addEventListener('submit', this.createObservation.bind(this))
         }
 
         else if(button.innerHTML === "Hide Form"){
@@ -83,10 +85,14 @@ class Constellations {
     }
     
     createObservation(event){
-        console.log(this)
+        //this is constellations object
+        //event.target = form
         event.preventDefault()
-        console.log("created?")
-        // get input then fetch(baseURL, newObservation)
+        const location = event.target.location.value
+        const clarity = event.target.clarity.value
+        const constell_id = event.target.parentElement.id
+        this.adapter.newObservation(location, clarity, constell_id).then(observation =>
+            console.log(observation))
     }
 
     formHTML(){
@@ -102,22 +108,3 @@ class Constellations {
         </form>`
     }
 }
-
-// let location = event.target.location.value
-//         let clarity = event.target.clarity.value
-//         let observationObj = {
-//           method: "POST",
-//           headers: {
-//             "Content-Type": "application/json",
-//             "Accept": "application/json"
-//           },
-//           body: JSON.stringify({
-//             "location": location, 
-//             "clarity": clarity,
-//             "constellation_id": event.target.id
-//             })
-//         }
-//         fetch(this.baseURL, observationObj)
-//         .then(resp => resp.json())
-//         .then(json => renderObservations(json))
-// }
