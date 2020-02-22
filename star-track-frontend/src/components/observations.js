@@ -8,21 +8,28 @@ class Observations{
 
     initBindingsAndEventListeners(){
         this.cardContainer = document.getElementById("card-container")
-        this.dataButton = document.getElementById("observation-data")
+        this.dataButton = document.querySelector(".view-button")
         this.dataButton.addEventListener('click', this.getAndLoadObservations.bind(this))
         //bind(this) to have this = observations class and not the button
     }
 
     getAndLoadObservations(){
-        this.adapter
-        .getObservations()
-        .then(observations =>{
-            //getObservations comes from ObservationsAdapter
-            observations.forEach(observation => this.observations.push(new Observation(observation)))
-        })
-        .then(()=>{
-            this.renderObservations()
-        })
+        if (this.dataButton.innerHTML === "Browse All Observation Data"){
+            this.adapter
+            .getObservations()
+            .then(observations =>{
+                //getObservations comes from ObservationsAdapter
+                observations.forEach(observation => this.observations.push(new Observation(observation)))
+            })
+            .then(()=>{
+                this.renderObservations()
+            })
+        }
+        else if(this.dataButton.innerHTML === "View Constellations"){
+            this.dataButton.innerHTML = "Browse All Observation Data"
+            new Constellations()
+        }
+            
     }
 
     renderObservations(){

@@ -25,9 +25,7 @@ class ConstellationsAdapter{
           },
           body: JSON.stringify(observation)
         })
-        // fetch(this.observationURL, observationObj)
          .then(resp => resp.json())
         
-        // })
     }
 }

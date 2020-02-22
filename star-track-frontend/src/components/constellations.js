@@ -99,9 +99,7 @@ class Constellations{
     createObservation(event){
         //this is constellations object
         //event.target = form
-        //console.log(event.target)
-        event.preventDefault()
-        
+        event.preventDefault()        
         const location = event.target.location.value
         const clarity = event.target.clarity.value
         const constell_id = event.target.parentElement.id
@@ -129,45 +127,4 @@ class Constellations{
     }
 
    
-
 }
-
-
-
-
-
-
-    // manageObservations(event){
-    //     const button = event.target
-    //     let observationDiv = document.createElement('div')
-    //         observationDiv.className = "observation-list"
-    //     if (button.innerHTML === "View Recorded Observations"){
-    //         button.innerHTML = "Hide Observations"
-    //         let selected = this.constellations.find(constellation => constellation.id == button.id)
-    //         let observations = selected.constObservationHTML()
-    //         observationDiv.innerHTML = observations
-    //         button.parentElement.appendChild(observationDiv)    
-    //     }
-    //     else if(button.innerHTML === "Hide Observations"){
-    //         button.innerHTML = "View Recorded Observations"
-    //         button.parentElement.lastElementChild.remove()
-    //         //parentElement is the div-card & lastElementChild is observationDiv
-    //     }
-    //     else if(button.innerHTML === "Add Observation Data"){
-    //         button.innerHTML = "Hide Form"
-    //         let formDiv = document.createElement('div')
-    //         formDiv.className = "form"
-    //         formDiv.id = button.parentElement.id
-    //         formDiv.innerHTML = this.formHTML()
-    //         button.parentElement.appendChild(formDiv)
-
-    //        let form = document.querySelector('.add-observation-form')
-    //         form.addEventListener('submit', this.createObservation.bind(this))
-    //     }
-
-    //     else if(button.innerHTML === "Hide Form"){
-    //         button.innerHTML = "Add Observation Data"
-    //         button.parentElement.lastElementChild.remove()
-    //         //lastElementChild is form div
-    //     }
-    // }
