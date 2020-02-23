@@ -1,6 +1,15 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: Arial;
+  }
+
+  .header{
+    padding: 60px;
+  text-align: center;
+  background: rgb(45, 8, 94);
+  color: white;
+  font-size: 30px;
   }
 
   div.const-card {
@@ -21,13 +30,13 @@ body {
     padding: 18px;
     width: 100%;
     border: none;
-    text-align: left;
+    text-align: center;
     outline: none;
     font-size: 15px;
   }
   
   .active, .collapsible:hover {
-    background-color: #555;
+    background-color: rgb(85, 22, 167);
   }
   
   .content {
@@ -35,4 +44,21 @@ body {
     display: block;
     overflow: hidden;
     background-color: #f1f1f1;
+  }
+  
+  .view-button {
+    background-color: rgb(45, 8, 94);
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+    padding: 14px 40px;
+  }
+
+  .view-button:hover {
+    background-color: #777;
   }

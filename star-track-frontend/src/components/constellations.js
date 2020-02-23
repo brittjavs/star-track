@@ -115,16 +115,23 @@ class Constellations{
             Clarity Rating:${observation.clarity}
             <br>
             <p>Take Backsies?</p>
-            <button id=${observation.id} class="delete">Delete Submission</button>`
+            <div class="confirmation">
+            <button id=${observation.id} class="delete">Delete Submission</button>
+            <button id=${observation.id} class="confirm">Confirm Submission</button>
+            </div>`
         })
         .then(()=>{
-            let deleteBtn = document.getElementsByClassName("delete")[0]
-            console.log(deleteBtn)
-            deleteBtn.addEventListener('click', (event)=>{
-                let obsID = event.target.id
-                this.adapter.delete(obsID)
-                observationsUL.lastElementChild.remove()
-                event.target.parentElement.innerHTML = this.formHTML()
+            let buttonDiv = document.getElementsByClassName("confirmation")[0]
+            buttonDiv.addEventListener('click', (event)=>{
+                if(event.target.innerHTML ==="Delete Submission"){
+                    let obsID = event.target.id
+                    this.adapter.delete(obsID)
+                    observationsUL.lastElementChild.remove()
+                    event.target.parentElement.parentElement.innerHTML = this.formHTML()
+                }
+                else if(event.target.innerHTML ==="Confirm Submission"){
+                    event.target.parentElement.parentElement.innerHTML = this.formHTML()
+                }
             })
         })
     }
