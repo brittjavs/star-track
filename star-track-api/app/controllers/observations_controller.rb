@@ -14,6 +14,7 @@ class ObservationsController < ApplicationController
     def destroy
         observation = Observation.find_by_id(params[:id])
         observation.delete
+        render json: {observationID: observation.id}
     end
 
     private
