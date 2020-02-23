@@ -33,6 +33,6 @@ class ConstellationsAdapter{
         return fetch(this.observationURL + `/${obsID}`, {
             method: 'DELETE'
         })
-        .then(res => res.json())
+        .then(resp => resp.json())
     }
 }

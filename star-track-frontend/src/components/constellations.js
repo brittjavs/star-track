@@ -124,6 +124,7 @@ class Constellations{
                 let obsID = event.target.id
                 this.adapter.delete(obsID)
                 observationsUL.lastElementChild.remove()
+                event.target.parentElement.innerHTML = this.formHTML()
             })
         })
     }
