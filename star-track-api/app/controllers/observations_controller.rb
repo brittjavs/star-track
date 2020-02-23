@@ -11,8 +11,13 @@ class ObservationsController < ApplicationController
             render json: ObservationSerializer.new(observations).to_serialized_json
     end
 
+    def destroy
+        observation = Observation.find_by_id(params[:id])
+        observation.delete
+    end
+
     private
     def observation_params
-        params.require(:observation).permit(:constellation_id, :location, :clarity, :user_id)
+        params.require(:observation).permit(:constellation_id, :location, :clarity)
     end
 end
