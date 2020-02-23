@@ -8,7 +8,6 @@ class Constellations{
 
     initBindingsAndEventListeners(){
         this.cardContainer = document.getElementById("card-container")
-        //this.cardContainer.addEventListener('click', this.manageObservations.bind(this))
         
     }
 
@@ -109,8 +108,24 @@ class Constellations{
         .then(observation =>{
             let newLI = `<li>Location: ${observation.location} Clarity Rating:${observation.clarity}</li>`
             observationsUL.innerHTML += newLI
+            event.target.parentElement.innerHTML =
+            `<h3>Thank you for your submission</h3>
+            Location: ${observation.location} 
+            <br>
+            Clarity Rating:${observation.clarity}
+            <br>
+            <p>Take Backsies?</p>
+            <button id=${observation.id} class="delete">Delete Submission</button>`
         })
-        
+        .then(()=>{
+            let deleteBtn = document.getElementsByClassName("delete")[0]
+            console.log(deleteBtn)
+            deleteBtn.addEventListener('click', (event)=>{
+                let obsID = event.target.id
+                this.adapter.delete(obsID)
+                observationsUL.lastElementChild.remove()
+            })
+        })
     }
 
     formHTML(){
@@ -126,5 +141,4 @@ class Constellations{
         </form>`
     }
 
-   
 }
