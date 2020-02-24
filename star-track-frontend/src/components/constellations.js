@@ -2,13 +2,13 @@ class Constellations{
     constructor(){
         this.constellations = []
         this.adapter = new ConstellationsAdapter()
+        this.observationsAdapter = new ObservationsAdapter()
         this.getAndLoadConstellations()
         this.initBindingsAndEventListeners()
     }
 
     initBindingsAndEventListeners(){
         this.cardContainer = document.getElementById("card-container")
-        
     }
 
     getAndLoadConstellations(){
@@ -104,7 +104,7 @@ class Constellations{
         const constell_id = event.target.parentElement.id
         const allULs = document.querySelectorAll(".observations")
         let observationsUL = allULs[`${constell_id}`-1]
-        this.adapter.newObservation(location, clarity, constell_id)
+        this.observationsAdapter.newObservation(location, clarity, constell_id)
         .then(observation =>{
             let newLI = `<li>Location: ${observation.location} Clarity Rating:${observation.clarity}</li>`
             observationsUL.innerHTML += newLI
@@ -125,7 +125,7 @@ class Constellations{
             buttonDiv.addEventListener('click', (event)=>{
                 if(event.target.innerHTML ==="Delete Submission"){
                     let obsID = event.target.id
-                    this.adapter.delete(obsID)
+                    this.observationsAdapter.delete(obsID)
                     observationsUL.lastElementChild.remove()
                     event.target.parentElement.parentElement.innerHTML = this.formHTML()
                 }

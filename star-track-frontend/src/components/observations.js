@@ -36,8 +36,10 @@ class Observations{
         this.cardContainer.innerHTML = ""
         this.dataButton.innerHTML = "View Constellations"
         this.dataButton.id = "constellation-data"
+
         const observationTable = document.createElement('table')
         let header = observationTable.createTHead();
+        let tableBody = observationTable.createTBody();
         let headerRow = header.insertRow();
         let keys = Object.keys(this.observations[0])
         
@@ -50,10 +52,9 @@ class Observations{
         }
         this.observations.forEach(observation=>{
             let data = observation.populateTable()
-            observationTable.append(data)
+            tableBody.appendChild(data)
         })
         this.cardContainer.appendChild(observationTable)
-        
     }    
 
 }
