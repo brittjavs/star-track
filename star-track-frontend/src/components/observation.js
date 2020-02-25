@@ -22,12 +22,10 @@ class Observation{
     }
 
     newObsHTML(){
-        return `<h3>Thank you for your submission</h3>
+        return `<h3>Please confirm your submission</h3>
         Location: ${this.location} 
         <br>
         Clarity Rating:${this.clarity}
-        <br>
-        <p>Take Backsies?</p>
         <div class="confirmation">
         <button id=${this.id} class="delete">Delete Submission</button>
         <button id=${this.id} class="confirm">Confirm Submission</button>
