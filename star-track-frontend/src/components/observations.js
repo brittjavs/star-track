@@ -14,6 +14,7 @@ class Observations{
     }
 
     getAndLoadObservations(){
+        this.observations = []
         if (this.dataButton.innerHTML === "Browse All Observation Data"){
             this.adapter
             .getObservations()
@@ -28,8 +29,7 @@ class Observations{
         else if(this.dataButton.innerHTML === "View Constellations"){
             this.dataButton.innerHTML = "Browse All Observation Data"
             new Constellations()
-        }
-            
+        }     
     }
 
     renderObservations(){

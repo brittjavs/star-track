@@ -17,4 +17,21 @@ class Observation{
         return dataRow
     }
 
+    newLI(){
+        return `<li>Location: ${this.location} Clarity Rating:${this.clarity}</li>`
+    }
+
+    newObsHTML(){
+        return `<h3>Thank you for your submission</h3>
+        Location: ${this.location} 
+        <br>
+        Clarity Rating:${this.clarity}
+        <br>
+        <p>Take Backsies?</p>
+        <div class="confirmation">
+        <button id=${this.id} class="delete">Delete Submission</button>
+        <button id=${this.id} class="confirm">Confirm Submission</button>
+        </div>`
+    }
+
 }

@@ -13,7 +13,7 @@ class ObservationsAdapter{
             clarity: clarity,
             constellation_id: constell_id
         }
-        return fetch(this.observationURL,{
+        return fetch(this.baseURL,{
             method: "POST",
           headers: {
             "Content-Type": "application/json",

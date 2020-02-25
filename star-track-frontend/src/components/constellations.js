@@ -105,20 +105,11 @@ class Constellations{
         const allULs = document.querySelectorAll(".observations")
         let observationsUL = allULs[`${constell_id}`-1]
         this.observationsAdapter.newObservation(location, clarity, constell_id)
-        .then(observation =>{
-            let newLI = `<li>Location: ${observation.location} Clarity Rating:${observation.clarity}</li>`
-            observationsUL.innerHTML += newLI
-            event.target.parentElement.innerHTML =
-            `<h3>Thank you for your submission</h3>
-            Location: ${observation.location} 
-            <br>
-            Clarity Rating:${observation.clarity}
-            <br>
-            <p>Take Backsies?</p>
-            <div class="confirmation">
-            <button id=${observation.id} class="delete">Delete Submission</button>
-            <button id=${observation.id} class="confirm">Confirm Submission</button>
-            </div>`
+        .then(observationJSON =>{
+            const observation = new Observation(observationJSON)
+            observationsUL.innerHTML += observation.newLI()
+            event.target.parentElement.innerHTML = observation.newObsHTML()
+           
         })
         .then(()=>{
             let buttonDiv = document.getElementsByClassName("confirmation")[0]
