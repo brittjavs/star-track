@@ -14,8 +14,8 @@ class Constellations{
     getAndLoadConstellations(){
         this.adapter
         .getConstellations()
+        //getConstellations comes from ConstellationsAdapter
         .then(constellations =>{
-            //getConstellations comes from ConstellationsAdapter
             constellations.forEach(constellation => this.constellations.push(new Constellation(constellation)))
             //add each new instance of Constellation(constellation object) class to our constellations array. 
         })
@@ -25,7 +25,6 @@ class Constellations{
     }
 
     renderConstellations(){
-        this.cardContainer.innerHTML = ""
         this.constellations.forEach(constellation =>{
             const divCard = document.createElement('div')
             divCard.className = "const-card"
@@ -132,9 +131,11 @@ class Constellations{
         <label for="observation-location">Location:</label>
         <input type="text" name="location" value="" placeholder="City, State" class="input-text"/>
         <br />
-        <label for="observation-clarity">Clarity Rating:</label>
-        <input type="number" name="clarity" value="" 
-        placeholder="Enter a rating 1 - 10 (10 being the best clarity)" class="input-text"/>
+        <label for="observation-clarity">Clarity Rating:
+        <br>
+        (1-10 with 10 being best clarity)</label>
+        <br>
+        <input type="number" name="clarity" value="" min=1 max=10 placeholder="0" class="input-text"/>
         <br />
         <input type="submit" name="submit" value="Submit Observation" class="submit" />
         </form>`
