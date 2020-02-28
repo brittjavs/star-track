@@ -25,6 +25,7 @@ class Constellations{
     }
 
     renderConstellations(){
+        this.cardContainer.innerHTML = ""
         this.constellations.forEach(constellation =>{
             const divCard = document.createElement('div')
             divCard.className = "const-card"
