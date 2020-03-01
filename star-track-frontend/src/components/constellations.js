@@ -26,6 +26,11 @@ class Constellations{
 
     renderConstellations(){
         this.cardContainer.innerHTML = ""
+        // let observedConstellations = this.constellations.filter(constellation => constellation.observations.length > 0)
+        //this returns only constellations that have observations
+        // let observedConstellations = this.constellations.filter(constellation => constellation.observations.filter(obs => obs.clarity > 8).length)
+        //this returns observations that have rating over 8
+        // observedConstellations.forEach(constellation =>{
         this.constellations.forEach(constellation =>{
             const divCard = document.createElement('div')
             divCard.className = "const-card"
