@@ -21,4 +21,4 @@ rails db:migrate
 rails db:seed
 rails s
 ```
-Open star-track-frontend/index.html
+Open star-track-frontend/index.html in your browser
