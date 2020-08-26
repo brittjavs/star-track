@@ -18,7 +18,7 @@ class Observation{
     }
 
     newLI(){
-        return `<li>Location: ${this.location} Clarity Rating:${this.clarity}</li>`
+        return `<li>Location: ${this.location} | Clarity Rating:${this.clarity}</li>`
     }
 
     newObsHTML(){
