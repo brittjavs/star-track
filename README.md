@@ -1,9 +1,8 @@
 # star-track app
-
-## Usage
 This is an application with a Rails API and JS frontend. 
-The app is designed to collect observation data of constellations in the Northern Hemisphere. It is open to all citizen scientists.
-User Story
+The app is designed to collect observation data of constellations in the Northern Hemisphere and is open to all citizen scientists.
+
+## User Story
 A user can 
 * Browse through constellations that are visible in the Northern Hemisphere.
 * View recorded observations for a specific constellation.
@@ -15,7 +14,7 @@ A user can
 
 * You will need PostgreSQL and a Postgres server to use this application
 
-After cloning this repository,
+After cloning this repository, run the following:
 ```
 cd star-track
 cd star-track-api
